@@ -1,18 +1,18 @@
 const express = require("express");
-const usuario = require("./rotas/usuario");
 const app = express();
 const porta = 3000;
 
 
 app.use(express.json());
 
+const bd = require("./bd")
+
+const usuario = require("./rotas/usuario");
+const nota = require("./rotas/nota");
+
 app.use("/usuario", usuario);
+app.use("/nota", nota);
 
-app.get("/:nome",function(req, res){
-    const nome = req.params.nome;
-    res.send("Olá " + nome);
-});
-
-app.listen(porta, function(){
+app.listen(porta, () => {
     console.log("Aplicação rodando na porta "+ porta);
 });
