@@ -1,12 +1,16 @@
 const {Router} = require("express");
+const {Usuario} = require("../bd");
 const router = Router();
 
 router.get("/",  (req, res) => {
   res.send([]);
 });
 
-router.post("/",  (req, res) => {
-  res.send({});
+router.post("/",  async (req, res) => {
+
+const usuario = await Usuario.create(req.body);
+
+  res.send(usuario);
 });
 
 router.put("/:id", (req, res) => {

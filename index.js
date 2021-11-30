@@ -5,7 +5,6 @@ const porta = 3000;
 
 app.use(express.json());
 
-const bd = require("./bd")
 
 const usuario = require("./rotas/usuario");
 const nota = require("./rotas/nota");
